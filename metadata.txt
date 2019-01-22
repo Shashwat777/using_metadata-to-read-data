@@ -1,0 +1,6 @@
+Field Name             Type
+
+NAME                   Character(20)
+ID                     Integer(5)
+SALARY                 Float(10)
+DEPARTMENT             Character(10)

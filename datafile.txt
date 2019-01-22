@@ -1,0 +1,6 @@
+NAME             ID               SALARY         DEPARTMENT
+
+Shashvat         101              10000            CS
+RAJU             103              15000            EC 
+RAM              105              20000            ME
+Swati            106              30000            CE
