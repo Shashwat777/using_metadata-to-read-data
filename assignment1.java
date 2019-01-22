@@ -7,7 +7,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.FileInputStream;
 
-public class assignment {
+public class assignment1 {
 
 
 
