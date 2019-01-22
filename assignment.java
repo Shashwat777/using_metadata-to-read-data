@@ -81,28 +81,14 @@ public class assignment {
 
                       }
 
+/* WHAT'S LEFT
+
+
+JUST NEED TO COMPUTE THE MAX VALUE OF THE FIELD DATA IN EVERY LINE IF NOT CHAR TYPE by parsing into int or float*/
 
 
 
 
-
-
-        /*  FileInputStream file1 = new FileInputStream("metadata.txt");
-          ObjectInputStream in = new ObjectInputStream(file1);
-
-          String  db = (String) in.readObject();
-          System.out.println(db);
-
-          in.close();
-          file1.close();*/
-
-          		/*	FileOutputStream file = new FileOutputStream("we.data");
-
-          			ObjectOutputStream out = new ObjectOutputStream(file);
-                String j="hey!!! how are you";
-          			out.writeObject(j);
-          			out.close();
-          			file.close();*/
 
 
 
