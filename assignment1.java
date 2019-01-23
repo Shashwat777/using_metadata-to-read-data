@@ -46,32 +46,33 @@ public class assignment1 {
 
                              position=chk;     /*FIELD NAME POSITION IN DATAFILE */
 
-                            System.out.println("k");
+
                            }
                            System.out.println(line);
-                           System.out.println(arr[0]+"n");
+
                            chk++;
                       }
                     System.out.println("Finish reading data description file....");
+
                       input.close();
                       if(fielddata==null){
 
                       notexist=1;  /*if fielddata equals null*/
                       }
                       else{
-                        String type=fielddata[fielddata.length-1];
-                        String[] type_arr=type.split("");
 
-                        if(type_arr[0].equals("C")){  /*to make sure that field is not of type char as max valof char can't be found */
+
+                        if(fielddata[1].equals("C")){  /*to make sure that field is not of type char as max valof char can't be found */
                         charr=1;
                         typ=0;
 
                         }
-                        else if(type_arr[0].equals("I"))
+                        else if(fielddata[1].equals("I"))  /* if the field is of type integer  */
                         {
                           typ=1;
+
                         }
-                        else if(type_arr[0].equals("F"))
+                        else if(fielddata[1].equals("F"))  /* if the field is of type  float */
                         {
                           typ=2;
                         }
@@ -85,26 +86,44 @@ public class assignment1 {
                       datafile=new Scanner(filedata);
                       int cntln=0;
                       int max=Integer.MIN_VALUE;
+                      Float maxfloat=Float.MAX_VALUE;
                       while (datafile.hasNextLine()) {
                         String line = datafile.nextLine();
-                        String[] array=line.split(" ") ;
+                        String[] array=line.split(" ") ; /* Datafile is space seperated  */
 
                         System.out.println(line);
-                      if(charr!=1 && notexist!=1 && cntln>1)
+                      if(charr!=1 && notexist!=1 && cntln>0) /* if not char and exist condition / condition to compute max */
                       {
-                        if(typ==1)
+                        if(typ==1) /* if integer */
                         {int chkk=0;
-                          for(int k=0;k<array.length;k++){
-                            if(array[k].equals("")==false){
 
-                          System.out.println(array[k]+position);}}
+                          for(int k=0;k<array.length;k++){
+                            if(array[k].equals("")==false){ /* to whipe out the white spaces */
+                            if(chkk==position){
+                              int elem=Integer.parseInt(array[k]);
+                              if(elem>max){max=elem;}
+
+
+                            }chkk++;}
+
+
+
+                            }
                         /*  int element=Integer.parseInt(array[position]);*/
 
                         }
+                        else if(typ==2){}/* if float*/
 
 
 
                       }cntln++;}
+                      if(typ==1){
+                        System.out.println("Max="+max);
+                      }
+                      else if(typ==2){
+
+                        System.out.println(maxfloat);
+                      }
                       System.out.println("Find max value in the field " + fn);
                       if(notexist==1){
                         System.out.println("--- Error: field name not found");
