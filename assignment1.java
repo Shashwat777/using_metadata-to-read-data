@@ -20,6 +20,7 @@ public class assignment1 {
       String fn=sc.next(); /*FIELD NAME INPUT*/
       int notexist=0;  /*SET TO ZERO*/
       int charr=0;
+      int typ=-1;
 
         try {
           Scanner input = new Scanner(System.in);
@@ -37,15 +38,18 @@ public class assignment1 {
 
 
                           String line = input.nextLine();
-                           String[] arr=line.split(" ") ;
+                           String[] arr=line.split(",") ;
+
                            if(arr[0].equals(fn)){ /* WHEN FIRST WORD OF LINE IS SAME AS FIELD NAME */
-                             fielddata=arr; /* FIELD DATA CONTAINS CONTAINS INFORMATION OF OUR INPUT field */
+                             fielddata=arr;
+                            /* FIELD DATA CONTAINS CONTAINS INFORMATION OF OUR INPUT field */
 
                              position=chk;     /*FIELD NAME POSITION IN DATAFILE */
 
-
+                            System.out.println("k");
                            }
                            System.out.println(line);
+                           System.out.println(arr[0]+"n");
                            chk++;
                       }
                     System.out.println("Finish reading data description file....");
@@ -60,6 +64,16 @@ public class assignment1 {
 
                         if(type_arr[0].equals("C")){  /*to make sure that field is not of type char as max valof char can't be found */
                         charr=1;
+                        typ=0;
+
+                        }
+                        else if(type_arr[0].equals("I"))
+                        {
+                          typ=1;
+                        }
+                        else if(type_arr[0].equals("F"))
+                        {
+                          typ=2;
                         }
 
 
@@ -69,9 +83,28 @@ public class assignment1 {
                      Scanner datafile=new Scanner(System.in);
                       File filedata = new File("datafile.txt");
                       datafile=new Scanner(filedata);
+                      int cntln=0;
+                      int max=Integer.MIN_VALUE;
                       while (datafile.hasNextLine()) {
                         String line = datafile.nextLine();
-                        System.out.println(line);}
+                        String[] array=line.split(" ") ;
+
+                        System.out.println(line);
+                      if(charr!=1 && notexist!=1 && cntln>1)
+                      {
+                        if(typ==1)
+                        {int chkk=0;
+                          for(int k=0;k<array.length;k++){
+                            if(array[k].equals("")==false){
+
+                          System.out.println(array[k]+position);}}
+                        /*  int element=Integer.parseInt(array[position]);*/
+
+                        }
+
+
+
+                      }cntln++;}
                       System.out.println("Find max value in the field " + fn);
                       if(notexist==1){
                         System.out.println("--- Error: field name not found");
