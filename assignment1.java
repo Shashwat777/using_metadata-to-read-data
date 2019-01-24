@@ -22,6 +22,7 @@ public class assignment1 {
       int charr=0;
       int typ=-1;
 
+
         try {
           Scanner input = new Scanner(System.in);
 
@@ -86,7 +87,7 @@ public class assignment1 {
                       datafile=new Scanner(filedata);
                       int cntln=0;
                       int max=Integer.MIN_VALUE;
-                      Float maxfloat=Float.MAX_VALUE;
+                      Float maxfloat=Float.MIN_VALUE;
                       while (datafile.hasNextLine()) {
                         String line = datafile.nextLine();
                         String[] array=line.split(" ") ; /* Datafile is space seperated  */
@@ -101,6 +102,7 @@ public class assignment1 {
                             if(array[k].equals("")==false){ /* to whipe out the white spaces */
                             if(chkk==position){
                               int elem=Integer.parseInt(array[k]);
+
                               if(elem>max){max=elem;}
 
 
@@ -112,7 +114,25 @@ public class assignment1 {
                         /*  int element=Integer.parseInt(array[position]);*/
 
                         }
-                        else if(typ==2){}/* if float*/
+                        else if(typ==2){
+
+                          int chkk=0;
+                          for(int k=0;k<array.length;k++){
+                            if(array[k].equals("")==false){
+
+                              if(chkk==position){
+                                float elem=Float.parseFloat(array[k]);
+                              
+                                if(elem>maxfloat){
+                                maxfloat=elem;
+                                }
+
+                              }
+                              chkk++;
+                            }
+                          }
+
+                        }/* if float*/
 
 
 

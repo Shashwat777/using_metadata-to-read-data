@@ -1,3 +1,4 @@
 Name,C,20
-Age,I,4
+Age,F,4
 Gender,C,1
+Salary,I,45

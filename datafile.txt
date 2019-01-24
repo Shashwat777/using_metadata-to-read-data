@@ -1,6 +1,6 @@
 
-Vikaram             40  M
-Anuj                20  M
-Rakesh              21  M
-Rekha               25  F
-john                26  M
+Vikaram             40677.8  M 64
+Anuj                20.8  M    68
+Rakesh              21.8  M    567
+Rekha               2500.8  F  345
+john                26.8  M    789
