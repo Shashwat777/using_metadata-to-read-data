@@ -6,6 +6,8 @@ import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class assignment1 {
 
@@ -88,12 +90,14 @@ public class assignment1 {
                       int cntln=0;
                       int max=Integer.MIN_VALUE;
                       Float maxfloat=Float.MIN_VALUE;
+                      ArrayList<String> list=new ArrayList<String>();
+
                       while (datafile.hasNextLine()) {
                         String line = datafile.nextLine();
                         String[] array=line.split(" ") ; /* Datafile is space seperated  */
 
                         System.out.println(line);
-                      if(charr!=1 && notexist!=1 && cntln>0) /* if not char and exist condition / condition to compute max */
+                      if(notexist!=1 && cntln>0) /* if not char and exist condition / condition to compute max */
                       {
                         if(typ==1) /* if integer */
                         {int chkk=0;
@@ -122,7 +126,7 @@ public class assignment1 {
 
                               if(chkk==position){
                                 float elem=Float.parseFloat(array[k]);
-                              
+
                                 if(elem>maxfloat){
                                 maxfloat=elem;
                                 }
@@ -133,6 +137,22 @@ public class assignment1 {
                           }
 
                         }/* if float*/
+                        else if(typ==0){
+                          int chkk=0;
+                          for(int k=0;k<array.length;k++){
+                            if(array[k].equals("")==false){
+
+                              if(chkk==position){
+
+                                list.add(array[k]);
+
+
+                              }
+                              chkk++;
+                            }
+                          }
+
+                        }
 
 
 
@@ -149,7 +169,8 @@ public class assignment1 {
                         System.out.println("--- Error: field name not found");
                       }
                       else if(charr==1){
-                        System.out.println("---- Error: field char max cant be found"); /*IF FIELD NAME IS CHAR NO MAX CAN BE FOUND */
+                        Collections.sort(list);
+                        System.out.println("Max="+list.get(0));
 
                       }
 
